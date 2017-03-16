@@ -33,7 +33,7 @@ class Article(models.Model):
         ('1', '存稿'),
     )
 
-    title = models.CharField(max_length=32, unique=True)
+    title = models.CharField(max_length=255, unique=True)
     url = models.CharField(max_length=255, unique=True)
     description = models.TextField()
     body = models.TextField()

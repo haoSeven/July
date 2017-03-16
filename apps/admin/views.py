@@ -143,7 +143,7 @@ class TagView(LoginRequiredMixin, View):
         tags = request.POST.get('tags', '')
         for tag in tags.split(','):
             try:
-                Tag.objects.get_or_create(name=tag.title())
+                Tag.objects.get_or_create(name=tag.capitalize())
             except Exception:
                 pass
         return HttpResponseRedirect(reverse('admin:tag'))
@@ -173,7 +173,7 @@ class CategoriesView(LoginRequiredMixin, View):
         for categorie in categories.split(','):
 
             try:
-                Categories.objects.create(name=categorie.title())
+                Categories.objects.create(name=categorie.capitalize())
             except Exception:
                 pass
         return HttpResponseRedirect(reverse('admin:categories'))
