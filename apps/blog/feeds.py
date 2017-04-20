@@ -1,5 +1,5 @@
 from django.contrib.syndication.views import Feed
-from blog.models import Article
+from apps.blog.models import Article
 from django.utils.feedgenerator import Rss201rev2Feed
 from django.utils.feedgenerator import Atom1Feed
 from markdown2 import markdown

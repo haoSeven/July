@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
     'pure_pagination',
-    'admin',
-    'blog',
-    'users',
+    'apps.admin',
+    'apps.blog',
+    'apps.users',
 ]
 
 MIDDLEWARE = [
@@ -80,8 +80,10 @@ WSGI_APPLICATION = 'July.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'julyblog',
+        'USER': 'root',
+        'PASSWORD': '123456',
     }
 }
 
@@ -123,8 +125,12 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
+    'apps/blog/static'
 ]
-
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder"
+)
 # 文件上传
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

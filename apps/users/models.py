@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from utils.default_model import random_nick_name
-from blog.models import Article
+from apps.blog.models import Article
 
 __all__ = [
     'UserProfile',
